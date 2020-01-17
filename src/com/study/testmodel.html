@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.min.js"></script>
+
+</head>
+<body>
+    <div id="div1">
+      输入英雄名称 <input v-model="name">
+        <button @click="doClick">选择你的英雄</button>
+    </div>
+    <script>
+        new Vue({
+            el:'#div1',
+            data:{
+                name:"阿伦"
+            },
+            methods:{
+                doClick:function () {
+                    alert(this.name)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

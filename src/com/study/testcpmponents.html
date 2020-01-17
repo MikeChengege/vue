@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.min.js"></script>
+    <style>
+        div.product{
+            float:left;
+            border:1px solid lightGray;
+            width:200px;
+            margin:10px;
+            cursor: pointer;
+        }
+        div.product:hover{
+            border:1px solid #c40000;
+
+        }
+        div.price{
+            color:#c40000;
+            font-weight:bold;
+            font-size:1.2em;
+            margin:10px;
+        }
+        div.productName{
+            color:gray;
+            font-size:0.8em;
+            margin:10px;
+        }
+        div.sale{
+            float:left;
+            width:100px;
+            border:1px solid lightgray;
+            border-width:1px 0px 0px 0px;
+            color:gray;
+            font-size:0.8em;
+            padding-left:10px;
+        }
+        div.review{
+            overflow:hidden;
+            border:1px solid lightgray;
+            border-width:1px 0px 0px 1px;
+            color:gray;
+            font-size:0.8em;
+            padding-left:10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="tempalate" style="display:none">
+        <div class="product" v-on:click="increaseSale">
+            <div class="price">
+                ￥{{product.price}}
+            </div>
+            <div class="productName">
+                {{product.name}}
+            </div>
+            <div class="sale">月成交{{product.sale}}笔</div>
+            <div class="review">评价{{product.review}}</div>
+        </div>
+    </div>
+    <div id="div1">
+        <product v-for="item in products" v-bind:product="item"></product>
+    </div>
+    <script>
+        var tempalateDiv = document.getElementById("tempalate").innerHTML;
+        var tempalateObject = {
+            props:['product'],
+            template:tempalateDiv,
+            methods: {
+                increaseSale:function () {
+                    this.product.sale = parseInt(this.product.sale);
+                    this.product.sale++
+                    this.$emit('increment')
+                }
+            }
+        }
+
+        Vue.component('product',tempalateObject);
+        new Vue({
+            el:'#div1',
+            data:{
+                products:[
+                    {"name":"男士手包真皮手拿包大容量信封包手抓包夹包软韩版潮1","sale":"1","price":"17","review":"3"},
+                    {"name":"男士手包真皮手拿包大容量信封包手抓包夹包软韩版潮2","sale":"2","price":"19","review":"13"},
+                    {"name":"男士手包真皮手拿包大容量信封包手抓包夹包软韩版潮3","sale":"3","price":"15","review":"23"}
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

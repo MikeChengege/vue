@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <div id="div1">
+        <button v-on:click="togger">来试试运气</button>
+        <div v-if="show">恭喜中奖</div>
+        <div v-else>谢谢惠顾</div>
+    </div>
+<script>
+    new Vue({
+        el:'#div1',
+        data:{
+            show:false
+        },
+        methods:{
+            togger:function () {
+                this.show=Math.random()<0.1;
+            }
+        }
+    })
+</script>
+</body>
+</html>

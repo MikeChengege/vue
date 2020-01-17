@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.min.js"></script>
+    <style type="text/css">
+        table tr td {
+            border: 1px solid gray;
+        }
+        table{
+            border-collapse: collapse;
+            width: 800px;
+            table-layout:fixed;
+        }
+        tr.first{
+            background-color: lightGray;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <table align="center">
+            <tr class="firstLine">
+                <td>视图</td>
+                <td>输入数据</td>
+                <td>绑定到视图</td>
+            </tr>
+            <tr>
+                <td>
+                    单行文本
+                </td>
+                <td>
+                    <input v-model.lazy="input" placeholder="输入">
+                </td>
+                <td>
+                    <p>{{input}}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    单行文本1
+                </td>
+                <td>
+                    <input v-model.number="input1" type="number" placeholder="输入数字">
+                </td>
+                <td>
+                    <p>{{input1}}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>多行文本</td>
+                <td>
+                    <textarea v-model="textarea" placeholder="输入"></textarea>
+                </td>
+                <td>
+                    <p>{{textarea}}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    单个复选框
+                </td>
+                <td>
+                    <input type="checkbox" id="checkbox" v-model="checked">
+                </td>
+                <td>
+                    <p>{{checked}}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>多个复选框</td>
+                <td>
+                    <input type="checkbox" id="teemo" v-model="checkeds" value="teemo"><label for="teemo">teemo</label>
+                    <input type="checkbox" id="green" v-model="checkeds" value="green"><label for="green">green</label>
+                    <input type="checkbox" id="alun" v-model="checkeds" value="alun"><label for="alun">alun</label>
+                </td>
+                <td>
+                    {{checkeds}}
+                </td>
+            </tr>
+            <tr>
+                <td>单选按钮</td>
+                <td>
+                    <input type="radio" v-model="radio" id="one" value="one"><label for="one">One</label>
+                    <input type="radio" v-model="radio" id="two" value="two"><label for="two">two</label>
+                </td>
+                <td>{{radio}}</td>
+            </tr>
+            <tr>
+                <td>单选选择框</td>
+                <td>
+                    <select v-model="selected" size="5">
+                        <option disabled value="">请选择</option>
+                        <option>ad</option>
+                        <option>ap</option>
+                        <option>adc</option>
+                    </select>
+                </td>
+                <td>
+                    {{selected}}
+                </td>
+            </tr>
+            <tr>
+                <td>多选选择框</td>
+                <td>
+                    <select v-model="selecteds" multiple size="5">
+                        <option disabled value="">请选择</option>
+                        <option>ad</option>
+                        <option>ap</option>
+                        <option>adc</option>
+                    </select>
+                </td>
+                <td>
+                    {{selecteds}}
+                </td>
+            </tr>
+            <tr>
+                <td>单个复选框</td>
+                <td>
+                    <input type="checkbox" id="togger" true-value="yyyy" false-value="nnn" v-model="togger">
+                </td>
+                <td>
+                    {{togger}}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        new Vue({
+            el:'#div1',
+            data:{
+                input:"",
+                input1:'',
+                textarea:'',
+                checked:'',
+                checkeds:[],
+                radio:'',
+                selected:'',
+                selecteds:[],
+                togger:''
+            }
+        })
+    </script>
+</body>
+</html>

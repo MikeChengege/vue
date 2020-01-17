@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.min.js"></script>
+
+</head>
+<body>
+    <div id="div1">
+        <div v-xart="{color:'red',text:'我是最棒的'}"> good good study dayday up</div>
+    </div>
+    <script>
+        Vue.directive('xart',function (el,binding) {
+            el.innerHTML = el.innerHTML+'('+binding.value.text+')'
+            el.style.color=binding.value.color
+        })
+        new Vue({
+            el:'#div1'
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.min.js"></script>
+    <style type="text/css">
+        table tr td {
+            border: 1px solid gray;
+        }
+        table{
+            border-collapse: collapse;
+            width: 300px;
+        }
+        tr.first{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+     <table align="center">
+        <tr class="first">
+            <td>名次</td>
+            <td>name</td>
+            <td>hp</td>
+        </tr>
+         <tr v-for="her,index in hero">
+             <td>{{index+1}}</td>
+             <td>{{her.name}}</td>
+             <td>{{her.hp}}</td>
+         </tr>
+     </table>
+    </div>
+    <script>
+        var gareen = [
+            {"name":"阿伦","hp":4441},
+            {"name":"小手手","hp":3441},
+            {"name":"小提莫","hp":2441},
+            {"name":"奶妈","hp":1441}
+        ]
+        new Vue({
+            el:'#div1',
+            data:{
+                hero:gareen
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/vue-router.min.js"></script>
+    <script src="../js/fetch.min.js"></script>
+
+</head>
+<body>
+<div id="div1">aa
+</div>
+<script>
+    var url="https://static.how2j.cn/study/json.txt";
+    fetch(url).then(function (response) {
+        response.json().then(function (jsonObject) {
+            var jsonString = JSON.stringify(jsonObject)
+            alert(jsonString)
+            document.getElementById('div1').innerHTML="通过ajax获取到的数据为--"+jsonString;
+        })
+    }).catch(function (err) {
+        console.log("Fetch错误："+err)
+    })
+</script>
+</body>
+</html>

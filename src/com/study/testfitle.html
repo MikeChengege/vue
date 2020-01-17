@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.min.js"></script>
+    <style type="text/css">
+        table tr td {
+            border: 1px solid gray;
+            padding: 10px;
+        }
+        table{
+            border-collapse: collapse;
+            width: 800px;
+            table-layout: fixed;
+        }
+        tr.first{
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+     <table align="center">
+        <tr class="first">
+            <td>输入数据</td>
+            <td>过滤后</td>
+        </tr>
+         <tr>
+                <td align="center">
+                    <input  v-model="data">
+                </td>
+             <td align="center">
+                 {{data|capitalize|capitalizelast}}
+             </td>
+         </tr>
+     </table>
+    </div>
+    <script>
+        Vue.filter('capitalize',function (value) {
+            if(!value) return ''
+            value = value.toString()
+            return value.charAt(1).toUpperCase()+value.substring(1)
+        })
+        Vue.filter('capitalizelast',function (value) {
+            if (!value) return ''
+            value = value.toString()
+            return value.substring(0,value.length-1)+value.charAt(value.substring(value.length-1)).toUpperCase()
+        })
+        new Vue({
+            el:'#div1',
+            data:{
+               data:''
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.min.js"></script>
+
+</head>
+<body>
+    <div id="div1">
+        <a :href="page">百度一下</a>
+    </div>
+    <script>
+        new Vue({
+            el:'#div1',
+            data:{
+                page:'http://www.baidu.com'
+            }
+        })
+    </script>
+</body>
+</html>

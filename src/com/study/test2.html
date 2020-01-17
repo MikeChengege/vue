@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+<div id="div1">
+   一共点击了{{number}}次
+    <button v-on:click="count">点击</button>
+</div>
+<script>
+    new Vue({
+        el:'#div1',
+        data:{
+            number:0
+        },
+        methods:{
+            count:function () {
+                this.number++;
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

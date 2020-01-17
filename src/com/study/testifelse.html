@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <div id="div1" align="center">
+        <button v-on:click="togger">看你考多少</button>
+        <div v-if="number>80">优秀{{number}}</div>
+        <div v-else-if="number>60">及格{{number}}</div>
+        <div v-else-if="number>50">不及格{{number}}</div>
+        <div v-else-if="number>20">回家吧{{number}}</div>
+        <div v-else>你是谁{{number}}</div>
+    </div>
+<script>
+    new Vue({
+        el:'#div1',
+        data:{
+            number:100
+        },
+        methods:{
+            togger:function () {
+                this.number=Math.random()*100;
+            }
+        }
+    })
+</script>
+</body>
+</html>
